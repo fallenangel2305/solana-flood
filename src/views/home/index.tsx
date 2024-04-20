@@ -7,6 +7,14 @@ import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
 import pkg from '../../../package.json';
 
+declare global {
+  interface Window {
+    Jupiter: {
+      init: (options: any) => void; // Adjust the type of options as per your requirements
+    };
+  }
+}
+
 export const HomeView: FC = () => {
   const wallet = useWallet();
   const { connection } = useConnection();
